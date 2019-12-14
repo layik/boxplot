@@ -9,5 +9,8 @@ lerna-debug.log*
 #modules
 node_modules
 
+#nyc
+.nyc_output
+
 #macOS
 .DS_Store
