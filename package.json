@@ -1,0 +1,55 @@
+{
+  "name": "boxplot",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Boxplot from an array of numbers",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/layik/boxplot"
+  },
+  "keywords": [
+    "boxplot"
+  ],
+  "author": "L Hama",
+  "license": "ISC",
+  "dependencies": {
+    "d3-array": "^2.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "scripts": {
+    "build": "webpack && cp dist/boxplot.js examples/browser",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^8.0.0-beta",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "chromedriver": "^78.0.1",
+    "css-loader": "^3.3.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^3.9.1",
+    "eslint-loader": "^1.6.1",
+    "geckodriver": "^1.19.1",
+    "mocha": "^6.2.2",
+    "parcel-bundler": "^1.12.4",
+    "react-test-renderer": "^16.7.0",
+    "selenium-webdriver": "^4.0.0-alpha.5",
+    "sinon": "^7.2.3",
+    "style-loader": "^1.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
