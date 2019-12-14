@@ -39,7 +39,7 @@
     "css-loader": "^3.3.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
-    "eslint": "^3.9.1",
+    "eslint": "^4.18.2",
     "eslint-loader": "^1.6.1",
     "geckodriver": "^1.19.1",
     "mocha": "^6.2.2",
