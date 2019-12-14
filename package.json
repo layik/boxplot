@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "webpack && cp dist/boxplot.js examples/browser",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn mocha --require @babel/register"
   },
   "browserslist": [
     ">0.2%",
@@ -31,10 +31,10 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^8.0.0-beta",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.1",
     "chromedriver": "^78.0.1",
     "css-loader": "^3.3.2",
     "enzyme": "^3.8.0",
