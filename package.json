@@ -19,7 +19,7 @@
     "react-dom": "^16.7.0"
   },
   "scripts": {
-    "build": "webpack && cp dist/boxplot.js examples/browser",
+    "build": "webpack && cp dist/index.js examples/browser",
     "test": "yarn mocha --require @babel/register",
     "watch": "yarn mocha --require @babel/register --watch --recursive",
     "coverage": "nyc --reporter=text node_modules/.bin/mocha --require @babel/register",

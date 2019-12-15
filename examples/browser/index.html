@@ -1,13 +1,22 @@
 <html>
-    <head>
-        <title>webpack library example - boxplot</title>
-    </head>
-    <body>
-        <div id='root'>
-        </div>
-        <script type='text/javascript' src='./webpack-boxplot.js'></script>
-        <script type='text/javascript'>
-            document.getElementById('root').innerHTML = " This is a browser example:" + 'One';
-        </script>
-    </body>
+
+<head>
+  <title>webpack library example - boxplot</title>
+</head>
+
+<body>
+  <div id='root'>
+  </div>
+  <script type='text/javascript' src='./index.js'></script>
+  <script type='text/javascript'>
+    ReactDOM.render(
+      <Boxplot data={[10,12,14,18,30]} />,
+      document.getElementById('root')
+    );     
+  </script>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</body>
+
 </html>
