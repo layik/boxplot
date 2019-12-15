@@ -23,7 +23,8 @@
     "test": "yarn mocha --require @babel/register",
     "watch": "yarn mocha --require @babel/register --watch --recursive",
     "coverage": "nyc --reporter=text node_modules/.bin/mocha --require @babel/register",
-    "cov": "yarn coverage"
+    "cov": "yarn coverage",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "browserslist": [
     ">0.2%",
