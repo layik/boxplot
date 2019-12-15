@@ -5,6 +5,9 @@
   <a href="https://travis-ci.org/layik/boxplot">
     <img src="https://img.shields.io/travis/layik/boxplot/master.svg?style=flat-square" alt="build" />
   </a>
+  <a href="https://codecov.io/gh/layik/boxplot">
+  <img src="https://codecov.io/gh/layik/boxplot/branch/master/graph/badge.svg" alt="codecov"/>
+  </a>
 </p>
 
 # boxplot
