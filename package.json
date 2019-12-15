@@ -24,7 +24,6 @@
     "watch": "yarn mocha --require @babel/register --watch --recursive",
     "coverage": "nyc --reporter=text node_modules/.bin/mocha --require @babel/register",
     "cov": "yarn coverage",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "browserslist": [
     ">0.2%",
@@ -44,7 +43,9 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.2.0",
     "chromedriver": "^78.0.1",
+    "codecov": "^3.6.1",
     "css-loader": "^3.3.2",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "eslint": "^6.7.2",
@@ -63,5 +64,10 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "dotenv/config"
+    ]
   }
 }
