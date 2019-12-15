@@ -2,6 +2,37 @@
 
 <head>
   <title>Boxplot</title>
+  <style>
+    .d3-chart {
+      margin-top: 20px;
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      z-index: 99;
+      color: black;
+    }
+
+    .d3-line-text {
+      fill: black;
+      font: italic 18px serif;
+    }
+
+    line {
+      /* stroke: #555555;  */
+      stroke: rgb(120, 120, 120);
+      stroke-width: 1;
+    }
+
+    .d3-line-grid {
+      stroke: #555555;
+      stroke-width: 0.1;
+    }
+
+    .d3-axis-labels {
+      font: italic 11px;
+      fill: black;
+      stroke: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,9 +66,11 @@
       });
       if (!isNumeric) return null;
       // proceed
-      const W = 100, H = (plotStyle && plotStyle.height) || 100, limit = 5;
+      const W = 100, H = (plotStyle && plotStyle.height) || 150, limit = 5;
       // Compute summary statistics used for the box:
       let data_sorted = data.sort(d3.ascending)
+      console.log(data_sorted);
+      
       data_sorted = data_sorted.map(e => convertRange(e, {
         oldMax: data_sorted[data_sorted.length - 1],
         oldMin: data_sorted[0],
@@ -49,12 +82,12 @@
       let q3 = +d3.quantile(data_sorted, .75).toFixed(2)
       let interQuantileRange = +(q3 - q1).toFixed(2)
       // https://www.purplemath.com/modules/boxwhisk3.htm
-      let min = +(q1 - 1.5 * interQuantileRange).toFixed(2)
+      let min = +(q1 - 1.5 * interQuantileRange).toFixed(2) < 0 && 0
       let max = +(q1 + 1.5 * interQuantileRange).toFixed(2)
       // console.log(min, max, q1, q3, interQuantileRange);
       const outliers = data_sorted.filter(e => e > max || e < min)
-      // console.log(outliers);
-
+      console.log(outliers, min);
+      
       // rescale variables according to screensize
       const Y = 5, yHeight = 60, yMiddle = Y + (yHeight / 2);
 
@@ -90,7 +123,7 @@
           }}>
             <svg width='100%' height='100%'>
               <g style={{
-                stroke: (plotStyle && plotStyle.lineColor) || 'rgb(18, 147, 154)'
+                stroke: (plotStyle && plotStyle.lineColor) || 'black'
               }}>
                 <line
                   x1={min + "%"}
@@ -121,7 +154,7 @@
                   width={interQuantileRange + "%"}
                   y={Y + "%"}
                   height={yHeight + "%"}
-                  fill={(plotStyle && plotStyle.fillColor) || 'rgb(18, 147, 154)'}
+                  fill={(plotStyle && plotStyle.fillColor) || 'rgb(120, 120, 120)'}
                   stroke="black 0.5px"
                 />
                 {/* median */}
@@ -151,7 +184,7 @@
                     return (
                       <g key={x1 + "-" + i}>
                         {/* <line 
-                    style={{ stroke: 'white', strokeWidth: 0.5 }}
+                    style={{ stroke: 'black', strokeWidth: 0.5 }}
                   x1={x1 + "%"} y1={"80%"} x2={x1} y2={'82%'} /> */}
                         <text x={(x1 + 2) + "%"} y={"85%"}
                           // transform="rotate(10)" style={{textAnchor:"end"}}
@@ -166,10 +199,20 @@
         </div>
       )
     }
-    ReactDOM.render(
-      <Boxplot data={[10, 12, 14, 18, 30]} />,
-      document.getElementById('root')
-    );     
+    function main() {
+      let array = Array.from({ length: 40 }, () => Math.floor(Math.random() * 40) + 5);
+      array = Array.from(new Set(array));
+      array.push(51); array.push(51)
+      ReactDOM.render(
+        <div>
+          <Boxplot data={array} /> 
+          <button onClick={main}>Random</button>
+        </div>,
+        document.getElementById('root')
+      );
+    }
+    main()
+
   </script>
   <script src="https://d3js.org/d3-array.v2.min.js"></script>
   <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
