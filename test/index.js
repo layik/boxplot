@@ -10,7 +10,7 @@ import Boxplot from '../src/boxplot';
 
 var expect = require('chai').expect;
 
-it('Mount', () => {
+it('Various boxplot render', () => {
   let m = mount(<Boxplot />);
   // console.log(m.props());
   // null is returned without data
@@ -22,6 +22,14 @@ it('Mount', () => {
   //not numeric
   expect(m.contains(<div />)).equal(false);
   // large digits
-  m = mount(<Boxplot data={[1200,30888,4,80,20,2]} />);
+  m = mount(<Boxplot 
+    plotStyle={{fillColor: 'red'}}
+    data={[1200,30888,4,80,20,2]} />);
   expect(m.find('div')).to.have.lengthOf(2);
+  //3 ticks + 1 general g
+  expect(m.find('g')).to.have.lengthOf(3+1);
+  // filter % to be 1
+  m = mount(<Boxplot data={[1,3,4,80,20]} />);
+  // negative
+  m = mount(<Boxplot data={[1,3,4,80,-20]} />);
 })
